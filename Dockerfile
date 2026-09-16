@@ -11,8 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY imagebot ./imagebot
 COPY start.py ./
 
-RUN useradd --create-home --uid 10001 bot && mkdir -p /app/data && chown -R bot:bot /app
-USER bot
+# Папка /app/data часто подключается хостингом как том, владельцем которого
+# является root. Запуск от root внутри изолированного контейнера позволяет
+# SQLite создать базу в таком томе без ручной настройки прав на сервере.
+RUN mkdir -p /app/data
 
 CMD ["python", "start.py"]
-
