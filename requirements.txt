@@ -1,0 +1,8 @@
+discord.py>=2.5,<3
+aiohttp>=3.10,<4
+aiosqlite>=0.20,<1
+google-auth>=2.35,<3
+google-auth-oauthlib>=1.2,<2
+Pillow>=11,<13
+python-dotenv>=1.0,<2
+tzdata>=2025.2

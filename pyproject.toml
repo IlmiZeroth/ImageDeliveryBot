@@ -1,0 +1,17 @@
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "PIE"]
+ignore = [
+    # The formatter intentionally leaves long URLs and user-facing Russian strings intact.
+    "E501",
+    # These are deliberate recovery boundaries around cloud and Discord operations.
+    "BLE001",
+    # A configured non-messageable Discord channel is an operational, not API-type, error.
+    "TRY004",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
